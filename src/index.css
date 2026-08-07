@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --color-sage: #6C7D6B;
+  --color-sage-dark: #374436;
+  --color-sage-light: #8E9E8D;
+  --color-sage-muted: #CBD4CB;
+  --color-warm-white: #FBF9F5;
+  --color-beige-soft: #F2EFE9;
+  --color-beige-card: #EAE6DD;
+  --color-charcoal: #2A2E2C;
+  --color-charcoal-muted: #5A605D;
+}
+
+@layer base {
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-warm-white);
+    color: var(--color-charcoal);
+  }
+
+  h1, h2, h3, h4, .font-serif-editorial {
+    font-family: var(--font-serif);
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  p, span, button, a, label, input, select, textarea {
+    overflow-wrap: break-word;
+  }
+}
+
+/* Custom scrollbar for ultra-minimalist feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FBF9F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD4CB;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6C7D6B;
+}
+
+/* Image zoom effect class */
+.img-editorial-hover {
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease;
+}
+.img-editorial-hover:hover {
+  transform: scale(1.03);
+}
+
+/* Hide scrollbar for clean horizontal scrolling */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
