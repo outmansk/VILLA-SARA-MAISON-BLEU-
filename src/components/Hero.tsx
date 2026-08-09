@@ -11,12 +11,15 @@ interface HeroProps {
 interface VideoSource {
   mp4: string;
   webm?: string;
+  mobileMp4?: string;
+  mobileWebm?: string;
 }
 
 const VIDEO_PLAYLIST: VideoSource[] = [
   {
     mp4: '/videos/day-architecture.mp4',
     webm: '/videos/day-architecture.webm',
+    // mobileMp4: '/videos/mobile-day-architecture.mp4', // Example
   },
   {
     mp4: '/videos/living.mp4',
@@ -86,8 +89,17 @@ export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
               idx === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
+            {/* Sources for Mobile Devices (Vertical 9:16) */}
+            {videoSource.mobileWebm && (
+              <source media="(max-width: 768px)" src={videoSource.mobileWebm} type="video/webm" />
+            )}
+            {videoSource.mobileMp4 && (
+              <source media="(max-width: 768px)" src={videoSource.mobileMp4} type="video/mp4" />
+            )}
+            
+            {/* Sources for Desktop/Tablet (Landscape 16:9) */}
             {videoSource.webm && (
-              <source src={videoSource.webm} type="video/webm" />
+              <source media="(min-width: 769px)" src={videoSource.webm} type="video/webm" />
             )}
             <source src={videoSource.mp4} type="video/mp4" />
           </video>

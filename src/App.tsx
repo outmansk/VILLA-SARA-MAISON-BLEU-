@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { VillaSuites } from './components/VillaSuites';
 import { BookingSection } from './components/BookingSection';
 import { Portfolio } from './components/Portfolio';
 import { Services } from './components/Services';
@@ -18,11 +17,10 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [preselectedService, setPreselectedService] = useState<string>('');
-  const [selectedSuiteId, setSelectedSuiteId] = useState<string>('');
 
   // Intersection Observer to update active navigation tab dynamically as user scrolls
   useEffect(() => {
-    const sectionIds = ['hero', 'about', 'suites', 'reservation', 'portfolio', 'services', 'contact'];
+    const sectionIds = ['hero', 'about', 'reservation', 'portfolio', 'services', 'contact'];
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
 
@@ -58,11 +56,6 @@ export default function App() {
     handleNavigate('contact');
   };
 
-  const handleSelectSuiteToBook = (suiteId: string) => {
-    setSelectedSuiteId(suiteId);
-    handleNavigate('reservation');
-  };
-
   return (
     <div className="min-h-screen bg-[#FBF9F5] text-[#2A2E2C] font-sans antialiased selection:bg-[#6C7D6B] selection:text-white">
       {/* Editorial Navigation Header */}
@@ -81,19 +74,16 @@ export default function App() {
         {/* 2. Le Domaine Section */}
         <About lang={lang} />
 
-        {/* 3. La Villa Privée Showcase Section */}
-        <VillaSuites lang={lang} onSelectSuiteToBook={handleSelectSuiteToBook} />
-
-        {/* 4. Galerie Section */}
+        {/* 3. Galerie Section */}
         <Portfolio lang={lang} onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* 5. Réservation Directe Section (With Dates) */}
-        <BookingSection lang={lang} selectedSuiteId={selectedSuiteId} />
+        {/* 4. Réservation Directe Section (With Dates) */}
+        <BookingSection lang={lang} selectedSuiteId={''} />
 
-        {/* 6. Conciergerie & Services Section */}
+        {/* 5. Conciergerie & Services Section */}
         <Services lang={lang} onInquire={handleInquireFromService} />
 
-        {/* 7. Contact & Accès Section */}
+        {/* 6. Contact & Accès Section */}
         <Contact lang={lang} preselectedService={preselectedService} />
       </main>
 

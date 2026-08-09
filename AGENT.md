@@ -41,7 +41,6 @@ Le site est un one-pager. `App.tsx` assemble les sections suivantes :
 - `Navbar.tsx` : Navigation (transparente puis fond plein au scroll, sélecteur de langue).
 - `Hero.tsx` : Vidéos plein écran (crossfade) avec grand titre.
 - `About.tsx` : Section de présentation minimaliste.
-- `VillaSuites.tsx` : Défilement vertical de grandes images des suites sans texte superflu.
 - `Services.tsx` : Grille minimaliste des prestations (icône, titre, sous-titre).
 - `Portfolio.tsx` : Galerie photos épurée.
 - `BookingSection.tsx` : Interface de sélection de dates épurée.

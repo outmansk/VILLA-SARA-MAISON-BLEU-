@@ -128,9 +128,9 @@ export const projectsData: Project[] = [
     location: 'Villa Little Bohème',
     year: '2023',
     category: 'Hospitality',
-    heroImage: '/photos/36.jpg',
+    heroImage: '/photos/67.jpg',
     gallery: [
-      '/photos/36.jpg',
+      '/photos/67.jpg',
       '/photos/53.jpg'
     ],
     description: 'Piscine chauffée de 15x5m, four à pizza italien, brasero convivial, terrain de mini-foot, gym extérieure, trampoline géant et terrains de pétanque.',
@@ -242,7 +242,7 @@ export interface GalleryPhoto {
 export const fullVillaGallery: GalleryPhoto[] = [
   {
     id: 'photo-1',
-    url: '/photos/36.jpg',
+    url: '/photos/67.jpg',
     title: 'Piscine Chauffée 15x5m & Transats Teck',
     category: 'extérieurs',
     locationTag: 'Espace Piscine'
