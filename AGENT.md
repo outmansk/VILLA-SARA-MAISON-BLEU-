@@ -99,3 +99,8 @@ const t = translations[lang].sectionName;
 ---
 
 **Instruction pour l'IA** : Avant d'écrire ou de refactoriser du code pour Villa Little Bohème, lisez attentivement ce fichier. Si vos modifications touchent à la structure globale, aux traductions, ou ajoutent un nouveau paradigme (ex: ajout de Redux, d'un backend), vous **devez** mettre à jour ce fichier `AGENT.md` pour refléter les changements.
+
+
+## 7. inspiration
+https://royalmansour.com/fr 
+https://www.aman.com/fr-fr/resorts/amanjena

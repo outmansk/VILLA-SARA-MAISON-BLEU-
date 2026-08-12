@@ -13,24 +13,33 @@ interface VideoSource {
   webm?: string;
   mobileMp4?: string;
   mobileWebm?: string;
+  startTime?: number;
+  endTime?: number;
 }
 
 const VIDEO_PLAYLIST: VideoSource[] = [
   {
     mp4: '/videos/day-architecture.mp4',
     webm: '/videos/day-architecture.webm',
-    // mobileMp4: '/videos/mobile-day-architecture.mp4', // Example
+    startTime: 0,
+    endTime: 3,
   },
   {
     mp4: '/videos/living.mp4',
     webm: '/videos/living.webm',
+    startTime: 0,
+    endTime: 3,
   },
   {
     mp4: '/videos/poolside.mp4',
     webm: '/videos/poolside.webm',
+    startTime: 0,
+    endTime: 3,
   },
   {
     mp4: '/videos/drone-aerial.mp4',
+    startTime: 4,
+    endTime: 8,
   },
 ];
 
@@ -47,17 +56,37 @@ export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
     setCurrentIndex((prev) => (prev + 1) % VIDEO_PLAYLIST.length);
   }, []);
 
+  const handleTimeUpdate = (idx: number) => {
+    if (idx !== currentIndex) return;
+    const video = videoRefs.current[idx];
+    if (!video) return;
+    const source = VIDEO_PLAYLIST[idx];
+
+    if (source.endTime !== undefined && video.currentTime >= source.endTime) {
+      handleVideoEnded();
+    }
+  };
+
   useEffect(() => {
     videoRefs.current.forEach((video, idx) => {
       if (!video) return;
+      const source = VIDEO_PLAYLIST[idx];
+
       if (idx === currentIndex) {
+        if (source.startTime !== undefined && (video.currentTime < source.startTime || video.currentTime > (source.endTime || 9999))) {
+          video.currentTime = source.startTime;
+        }
         if (isPlaying) video.play().catch(() => {});
       } else {
         // Pause other videos after the crossfade finishes
         setTimeout(() => {
           if (video && idx !== currentIndex) {
             video.pause();
-            video.currentTime = 0;
+            if (source.startTime !== undefined) {
+              video.currentTime = source.startTime;
+            } else {
+              video.currentTime = 0;
+            }
           }
         }, 800);
       }
@@ -85,6 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
             muted={isMuted}
             playsInline
             onEnded={handleVideoEnded}
+            onTimeUpdate={() => handleTimeUpdate(idx)}
             className={`absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.02] transition-opacity duration-1000 ease-in-out ${
               idx === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}

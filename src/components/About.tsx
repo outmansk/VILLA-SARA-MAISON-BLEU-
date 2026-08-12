@@ -1,6 +1,13 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Language, translations } from '../translations';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const ABOUT_IMAGES = [
+  "/photos/59.jpg",
+  "/photos/53.jpg",
+  "/photos/3.jpg"
+];
 
 interface AboutProps {
   lang: Language;
@@ -8,6 +15,17 @@ interface AboutProps {
 
 export const About: React.FC<AboutProps> = ({ lang }) => {
   const t = translations[lang].about;
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % ABOUT_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextImage = () => setCurrentImageIndex((prev) => (prev + 1) % ABOUT_IMAGES.length);
+  const prevImage = () => setCurrentImageIndex((prev) => (prev - 1 + ABOUT_IMAGES.length) % ABOUT_IMAGES.length);
 
   return (
     <section id="about" className="py-16 sm:py-24 md:py-36 bg-[#FBF9F5] border-t border-[#F2EFE9] overflow-hidden">
@@ -86,14 +104,53 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-              className="w-full relative aspect-[4/3] md:aspect-auto md:h-[400px] lg:h-[500px] rounded-sm overflow-hidden shadow-xl"
+              className="w-full relative aspect-[4/3] md:aspect-auto md:h-[400px] lg:h-[500px] rounded-sm overflow-hidden shadow-xl group"
             >
-              <img
-                src="/photos/59.jpg"
-                alt="MY LITTLE BOHÈME Villa Privée"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover img-editorial-hover"
-              />
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentImageIndex}
+                  src={ABOUT_IMAGES[currentImageIndex]}
+                  alt="MY LITTLE BOHÈME Villa Privée"
+                  referrerPolicy="no-referrer"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="w-full h-full object-cover absolute inset-0 img-editorial-hover"
+                />
+              </AnimatePresence>
+              
+              {/* Carousel Controls */}
+              <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
+                <button 
+                  onClick={prevImage}
+                  className="bg-white/70 hover:bg-white text-[#2A2E2C] rounded-full p-2 backdrop-blur-sm transition-all pointer-events-auto"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button 
+                  onClick={nextImage}
+                  className="bg-white/70 hover:bg-white text-[#2A2E2C] rounded-full p-2 backdrop-blur-sm transition-all pointer-events-auto"
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+
+              {/* Dots indicator */}
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+                {ABOUT_IMAGES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentImageIndex(idx)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      idx === currentImageIndex ? 'bg-white w-6' : 'bg-white/50 hover:bg-white/80'
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </motion.div>
             
             <motion.div
