@@ -4,8 +4,8 @@ export const studioData: StudioInfo = {
   name: 'VILLA LITTLE BOHÈME',
   founder: 'Sarla',
   tagline: "Villa Privée de Luxe, Séjours d'Exception & Conciergerie.",
-  location: 'Paris • Provence • Palma de Mallorca',
-  instagram: '@villalittleboheme',
+  location: 'Route de Fès • Marrakech • Maroc',
+  instagram: '@mylittleboheme_marrakech',
   email: 'reservation@villalittleboheme.com',
   phone: '+44 7938 766267'
 };

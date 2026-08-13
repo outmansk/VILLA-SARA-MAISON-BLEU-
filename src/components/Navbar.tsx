@@ -240,8 +240,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
 
             <div className="text-center pt-6 border-t border-[#EAE6DD]">
-              <p className="text-xs tracking-widest text-[#6C7D6B] uppercase">Paris • Palma de Mallorca • Provence</p>
-              <p className="text-xs text-[#5A605D] mt-1">reservation@mylittleboheme.com</p>
+              <p className="text-xs tracking-widest text-[#6C7D6B] uppercase">Route de Fès • Marrakech • Maroc</p>
+              <p className="text-xs text-[#5A605D] mt-1">reservation@villalittleboheme.com</p>
             </div>
           </motion.div>
         )}

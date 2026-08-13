@@ -86,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
 
           <div className="flex items-center space-x-6">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/mylittleboheme_marrakech/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"

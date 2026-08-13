@@ -107,7 +107,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                     Instagram Journal
                   </span>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/mylittleboheme_marrakech/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-serif text-lg text-[#2A2E2C] hover:text-[#6C7D6B] transition-colors"
@@ -159,13 +159,13 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                 <span className="text-xs uppercase tracking-[0.25em] font-medium text-[#2A2E2C]">
                   Instagram Journal
                 </span>
-                <span className="text-xs text-[#6C7D6B] font-light">@mylittleboheme</span>
+                <span className="text-xs text-[#6C7D6B] font-light">@mylittleboheme_marrakech</span>
               </div>
               <div className="grid grid-cols-4 gap-3">
                 {instagramPosts.map((post) => (
                   <a
                     key={post.id}
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/mylittleboheme_marrakech/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="relative aspect-square rounded-xl overflow-hidden group border border-[#EAE6DD]"
