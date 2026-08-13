@@ -28,7 +28,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
   const prevImage = () => setCurrentImageIndex((prev) => (prev - 1 + ABOUT_IMAGES.length) % ABOUT_IMAGES.length);
 
   return (
-    <section id="about" className="py-16 sm:py-24 md:py-36 bg-[#FBF9F5] border-t border-[#F2EFE9] overflow-hidden">
+    <section id="about" className="py-16 sm:py-24 md:py-36 bg-[#FAF6F0] border-t border-[#F0ECE4] overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         {/* Section Header Eyebrow */}
         <motion.div
@@ -36,24 +36,24 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-          className="flex items-center gap-3 sm:gap-4 mb-10 sm:mb-16"
+          className="flex flex-col items-center justify-center gap-4 mb-16 sm:mb-24"
         >
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.2em] sm:tracking-[0.3em] font-medium text-[#6C7D6B]">
+          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.4em] font-medium text-[#8B2332]">
             {t.eyebrow}
           </span>
-          <div className="h-[1px] w-12 sm:w-16 bg-[#6C7D6B]/40" />
+          <div className="h-[1px] w-12 sm:w-20 bg-[#8B2332]/40" />
         </motion.div>
 
         {/* Minimalist Editorial Layout (Royal Mansour Style) */}
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20">
           {/* Left Column: Text */}
-          <div className="w-full lg:w-1/2 flex flex-col">
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
-              className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#B59960] font-light leading-tight mb-8"
+              className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#C5A059] font-light leading-tight mb-8"
             >
               {t.title}
             </motion.h2>
@@ -63,7 +63,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 1, delay: 0.1, ease: [0.25, 1, 0.5, 1] }}
-              className="text-sm sm:text-base md:text-lg font-sans font-light text-[#2A2E2C] opacity-90 leading-relaxed mb-6"
+              className="text-sm sm:text-base md:text-lg font-sans font-light text-[#1A1A1A] opacity-80 leading-relaxed mb-6"
             >
               {t.p1}
             </motion.p>
@@ -73,7 +73,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 1, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
-              className="text-sm sm:text-base md:text-lg font-sans font-light text-[#2A2E2C] opacity-90 leading-relaxed mb-10"
+              className="text-sm sm:text-base md:text-lg font-sans font-light text-[#1A1A1A] opacity-80 leading-relaxed mb-10"
             >
               {t.p2}
             </motion.p>
@@ -84,15 +84,15 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 1, delay: 0.3, ease: [0.25, 1, 0.5, 1] }}
-              className="flex flex-col sm:flex-row gap-8 sm:gap-12 pt-8 border-t border-[#F2EFE9]"
+              className="flex flex-col sm:flex-row gap-8 sm:gap-12 pt-8 border-t border-[#F0ECE4]"
             >
               <div className="flex-1">
-                <h4 className="text-xs uppercase tracking-[0.15em] font-medium text-[#2A2E2C] mb-3">{t.privatizationTitle}</h4>
-                <p className="text-sm text-[#6C7D6B] font-light leading-relaxed">{t.privatizationDesc}</p>
+                <h4 className="text-xs uppercase tracking-[0.15em] font-medium text-[#1A1A1A] mb-3">{t.privatizationTitle}</h4>
+                <p className="text-sm text-[#8B2332] font-light leading-relaxed">{t.privatizationDesc}</p>
               </div>
               <div className="flex-1">
-                <h4 className="text-xs uppercase tracking-[0.15em] font-medium text-[#2A2E2C] mb-3">{t.conciergeTitle}</h4>
-                <p className="text-sm text-[#6C7D6B] font-light leading-relaxed">{t.conciergeDesc}</p>
+                <h4 className="text-xs uppercase tracking-[0.15em] font-medium text-[#1A1A1A] mb-3">{t.conciergeTitle}</h4>
+                <p className="text-sm text-[#8B2332] font-light leading-relaxed">{t.conciergeDesc}</p>
               </div>
             </motion.div>
           </div>
@@ -124,14 +124,14 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
               <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
                 <button 
                   onClick={prevImage}
-                  className="bg-white/70 hover:bg-white text-[#2A2E2C] rounded-full p-2 backdrop-blur-sm transition-all pointer-events-auto"
+                  className="bg-white/70 hover:bg-white text-[#1A1A1A] rounded-full p-2 backdrop-blur-sm transition-all pointer-events-auto"
                   aria-label="Previous image"
                 >
                   <ChevronLeft size={20} />
                 </button>
                 <button 
                   onClick={nextImage}
-                  className="bg-white/70 hover:bg-white text-[#2A2E2C] rounded-full p-2 backdrop-blur-sm transition-all pointer-events-auto"
+                  className="bg-white/70 hover:bg-white text-[#1A1A1A] rounded-full p-2 backdrop-blur-sm transition-all pointer-events-auto"
                   aria-label="Next image"
                 >
                   <ChevronRight size={20} />
@@ -158,13 +158,13 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 1, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
-              className="bg-[#F2EFE9] p-8 sm:p-10 rounded-sm relative"
+              className="bg-[#F0ECE4] p-8 sm:p-10 rounded-sm relative"
             >
-              <span className="absolute top-4 left-6 text-4xl text-[#B59960] font-serif opacity-40">"</span>
-              <p className="text-sm sm:text-base font-serif italic text-[#2A2E2C] leading-relaxed mb-4 relative z-10 pt-2">
+              <span className="absolute top-4 left-6 text-4xl text-[#C5A059] font-serif opacity-40">"</span>
+              <p className="text-sm sm:text-base font-serif italic text-[#1A1A1A] leading-relaxed mb-4 relative z-10 pt-2">
                 {t.quote}
               </p>
-              <p className="text-xs font-sans uppercase tracking-[0.2em] font-medium text-[#6C7D6B]">
+              <p className="text-xs font-sans uppercase tracking-[0.2em] font-medium text-[#8B2332]">
                 {t.quoteAuthor}
               </p>
             </motion.div>

@@ -51,7 +51,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
   };
 
   return (
-    <section id="portfolio" className="py-14 sm:py-24 md:py-36 bg-[#F2EFE9] border-t border-[#EAE6DD] overflow-hidden">
+    <section id="portfolio" className="py-14 sm:py-24 md:py-36 bg-[#F0ECE4] border-t border-[#E6E1D6] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Minimalist Section Header */}
         <motion.div
@@ -61,7 +61,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
           transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1] }}
           className="flex flex-col items-center justify-center mb-10 sm:mb-16 gap-6 sm:gap-8 text-center"
         >
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#B59960]">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#C5A059]">
             {t.title}
           </h2>
 
@@ -73,8 +73,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
                 onClick={() => setActiveFilter(cat)}
                 className={`px-3.5 sm:px-4 py-2 rounded-full text-[10px] sm:text-xs font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-all duration-300 cursor-pointer whitespace-nowrap shrink-0 ${
                   activeFilter === cat
-                    ? 'bg-[#6C7D6B] text-white shadow-xs'
-                    : 'bg-[#FBF9F5] text-[#2A2E2C]/70 hover:text-[#2A2E2C] hover:bg-[#EAE6DD]'
+                    ? 'bg-[#8B2332] text-white shadow-xs'
+                    : 'bg-[#FAF6F0] text-[#1A1A1A]/70 hover:text-[#1A1A1A] hover:bg-[#E6E1D6]'
                 }`}
               >
                 {cat === 'All' ? t.allCategories : cat}
@@ -105,7 +105,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
                   onClick={() => onSelectProject(project)}
                   className={`${colSpanClass} group cursor-pointer`}
                 >
-                  <div className={`relative w-full ${aspectClass} rounded-2xl overflow-hidden bg-[#EAE6DD] shadow-md mb-4`}>
+                  <div className={`relative w-full ${aspectClass} rounded-2xl overflow-hidden bg-[#E6E1D6] shadow-md mb-4`}>
                     <img
                       src={project.heroImage}
                       alt={project.title}
@@ -113,8 +113,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
                       className="w-full h-full object-cover img-editorial-hover"
                     />
                     
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#2A2E2C]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
-                      <span className="text-xs uppercase tracking-[0.25em] font-medium text-[#CBD4CB] mb-1">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
+                      <span className="text-xs uppercase tracking-[0.25em] font-medium text-[#E8D1D5] mb-1">
                         {t.viewProject}
                       </span>
                       <div className="flex items-center justify-between">
@@ -128,14 +128,14 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
 
                   <div className="flex items-start justify-between px-1">
                     <div>
-                      <h3 className="font-serif text-xl sm:text-2xl text-[#2A2E2C] group-hover:text-[#6C7D6B] transition-colors">
+                      <h3 className="font-serif text-xl sm:text-2xl text-[#1A1A1A] group-hover:text-[#8B2332] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-xs font-sans text-[#5A605D] tracking-wider uppercase mt-1">
+                      <p className="text-xs font-sans text-[#4A4A4A] tracking-wider uppercase mt-1">
                         {project.location} • {project.year}
                       </p>
                     </div>
-                    <span className="text-xs font-sans uppercase tracking-widest text-[#6C7D6B] px-3 py-1 bg-[#FBF9F5] rounded-full border border-[#EAE6DD]">
+                    <span className="text-xs font-sans uppercase tracking-widest text-[#8B2332] px-3 py-1 bg-[#FAF6F0] rounded-full border border-[#E6E1D6]">
                       {project.category}
                     </span>
                   </div>
@@ -149,11 +149,11 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
         <div className="mt-16 text-center">
           <button
             onClick={() => setIsFullGalleryOpen(true)}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#6C7D6B] hover:bg-[#374436] text-white rounded-full text-xs font-medium uppercase tracking-[0.25em] transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 cursor-pointer group"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#8B2332] hover:bg-[#5C121F] text-white rounded-full text-xs font-medium uppercase tracking-[0.25em] transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 cursor-pointer group"
           >
-            <Images className="w-4 h-4 text-[#CBD4CB] group-hover:scale-110 transition-transform" />
+            <Images className="w-4 h-4 text-[#E8D1D5] group-hover:scale-110 transition-transform" />
             <span>{t.seeMoreBtn}</span>
-            <ArrowRight className="w-4 h-4 text-[#CBD4CB] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-[#E8D1D5] group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>
@@ -166,22 +166,22 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '100%' }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-50 bg-[#FBF9F5] overflow-y-auto flex flex-col"
+            className="fixed inset-0 z-50 bg-[#FAF6F0] overflow-y-auto flex flex-col"
           >
             {/* Modal Sticky Header */}
-            <div className="sticky top-0 z-20 bg-[#FBF9F5]/90 backdrop-blur-md border-b border-[#EAE6DD] px-4 sm:px-12 py-4 sm:py-6 flex items-center justify-between">
+            <div className="sticky top-0 z-20 bg-[#FAF6F0]/90 backdrop-blur-md border-b border-[#E6E1D6] px-4 sm:px-12 py-4 sm:py-6 flex items-center justify-between">
               <div>
-                <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#6C7D6B] font-semibold block mb-0.5 sm:mb-1">
+                <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#8B2332] font-semibold block mb-0.5 sm:mb-1">
                   MY LITTLE BOHÈME • Galerie
                 </span>
-                <h3 className="font-serif text-lg sm:text-3xl text-[#2A2E2C]">
+                <h3 className="font-serif text-lg sm:text-3xl text-[#1A1A1A]">
                   {t.fullGalleryTitle}
                 </h3>
               </div>
 
               <button
                 onClick={() => setIsFullGalleryOpen(false)}
-                className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 bg-[#2A2E2C] text-white rounded-full text-[10px] sm:text-xs font-medium uppercase tracking-widest hover:bg-[#6C7D6B] transition-colors cursor-pointer shrink-0"
+                className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 bg-[#1A1A1A] text-white rounded-full text-[10px] sm:text-xs font-medium uppercase tracking-widest hover:bg-[#8B2332] transition-colors cursor-pointer shrink-0"
               >
                 <span>{t.closeGallery}</span>
                 <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -190,20 +190,20 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
 
             {/* Gallery Content Container */}
             <div className="max-w-7xl mx-auto px-4 sm:px-10 py-6 sm:py-12 w-full flex-1">
-              <p className="text-xs sm:text-sm font-sans font-light text-[#5A605D] max-w-2xl mb-6 sm:mb-8">
+              <p className="text-xs sm:text-sm font-sans font-light text-[#4A4A4A] max-w-2xl mb-6 sm:mb-8">
                 {t.fullGallerySubtitle}
               </p>
 
               {/* Category Filter Pills - Scrollable on mobile */}
-              <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-4 mb-8 sm:mb-12 border-b border-[#EAE6DD] -mx-4 px-4 sm:mx-0 sm:px-0">
+              <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-4 mb-8 sm:mb-12 border-b border-[#E6E1D6] -mx-4 px-4 sm:mx-0 sm:px-0">
                 {galleryCategories.map((cat) => (
                   <button
                     key={cat.id}
                     onClick={() => setGalleryCategory(cat.id)}
                     className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs font-medium uppercase tracking-wider transition-all duration-300 cursor-pointer whitespace-nowrap shrink-0 ${
                       galleryCategory === cat.id
-                        ? 'bg-[#6C7D6B] text-white shadow-xs'
-                        : 'bg-[#F2EFE9] text-[#2A2E2C]/80 hover:bg-[#EAE6DD]'
+                        ? 'bg-[#8B2332] text-white shadow-xs'
+                        : 'bg-[#F0ECE4] text-[#1A1A1A]/80 hover:bg-[#E6E1D6]'
                     }`}
                   >
                     {cat.label}
@@ -220,7 +220,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     onClick={() => setActivePhotoIndex(index)}
-                    className="group relative bg-[#EAE6DD] rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[3/2] cursor-pointer shadow-xs hover:shadow-xl transition-all duration-500"
+                    className="group relative bg-[#E6E1D6] rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[3/2] cursor-pointer shadow-xs hover:shadow-xl transition-all duration-500"
                   >
                     <img
                       src={photo.url}
@@ -229,9 +229,9 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#2A2E2C]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end text-white">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end text-white">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#CBD4CB]">
+                        <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#E8D1D5]">
                           {photo.locationTag || photo.category}
                         </span>
                         <Maximize2 className="w-4 h-4 text-white" />
@@ -258,7 +258,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
             {/* Top Bar */}
             <div className="flex items-center justify-between text-white border-b border-white/10 pb-4">
               <div>
-                <span className="text-xs uppercase tracking-[0.2em] text-[#CBD4CB] font-mono">
+                <span className="text-xs uppercase tracking-[0.2em] text-[#E8D1D5] font-mono">
                   {activePhotoIndex! + 1} / {filteredGalleryPhotos.length}
                 </span>
                 <h4 className="font-serif text-xl text-white mt-0.5">{activePhoto.title}</h4>
@@ -301,7 +301,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, lang }) =
             </div>
 
             {/* Bottom Caption Bar */}
-            <div className="text-center text-xs uppercase tracking-[0.25em] text-[#CBD4CB] font-light">
+            <div className="text-center text-xs uppercase tracking-[0.25em] text-[#E8D1D5] font-light">
               {activePhoto.locationTag ? `${activePhoto.locationTag} • ` : ''}MY LITTLE BOHÈME
             </div>
           </motion.div>

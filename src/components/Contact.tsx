@@ -50,20 +50,20 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
   };
 
   return (
-    <section id="contact" className="py-14 sm:py-24 md:py-36 bg-[#F2EFE9] border-t border-[#EAE6DD] overflow-hidden">
+    <section id="contact" className="py-14 sm:py-24 md:py-36 bg-[#F0ECE4] border-t border-[#E6E1D6] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <div className="mb-10 sm:mb-16">
           <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.2em] sm:tracking-[0.3em] font-medium text-[#6C7D6B]">
+            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.2em] sm:tracking-[0.3em] font-medium text-[#8B2332]">
               {t.eyebrow}
             </span>
-            <div className="h-[1px] w-12 sm:w-16 bg-[#6C7D6B]/40" />
+            <div className="h-[1px] w-12 sm:w-16 bg-[#8B2332]/40" />
           </div>
-          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-light text-[#2A2E2C]">
+          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A1A]">
             {t.title}
           </h2>
-          <p className="mt-2 sm:mt-3 text-xs sm:text-base font-sans font-light text-[#5A605D] max-w-2xl">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-base font-sans font-light text-[#4A4A4A] max-w-2xl">
             {t.subtitle}
           </p>
         </div>
@@ -78,19 +78,19 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
             className="lg:col-span-5 space-y-8 sm:space-y-10"
           >
             {/* Quick Contact Cards */}
-            <div className="space-y-5 sm:space-y-6 bg-[#FBF9F5] p-5 sm:p-8 rounded-2xl border border-[#EAE6DD]">
+            <div className="space-y-5 sm:space-y-6 bg-[#FAF6F0] p-5 sm:p-8 rounded-2xl border border-[#E6E1D6]">
               {/* Email */}
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#F2EFE9] rounded-full text-[#6C7D6B] shrink-0">
+                <div className="p-3 bg-[#F0ECE4] rounded-full text-[#8B2332] shrink-0">
                   <Mail className="w-5 h-5 stroke-[1.5]" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#6C7D6B] font-semibold block">
+                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#8B2332] font-semibold block">
                     Email Direct
                   </span>
                   <a
                     href={`mailto:${studioData.email}`}
-                    className="font-serif text-lg text-[#2A2E2C] hover:text-[#6C7D6B] transition-colors"
+                    className="font-serif text-lg text-[#1A1A1A] hover:text-[#8B2332] transition-colors"
                   >
                     {studioData.email}
                   </a>
@@ -99,18 +99,18 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
 
               {/* Instagram */}
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#F2EFE9] rounded-full text-[#6C7D6B] shrink-0">
+                <div className="p-3 bg-[#F0ECE4] rounded-full text-[#8B2332] shrink-0">
                   <Instagram className="w-5 h-5 stroke-[1.5]" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#6C7D6B] font-semibold block">
+                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#8B2332] font-semibold block">
                     Instagram Journal
                   </span>
                   <a
                     href="https://www.instagram.com/mylittleboheme_marrakech/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-serif text-lg text-[#2A2E2C] hover:text-[#6C7D6B] transition-colors"
+                    className="font-serif text-lg text-[#1A1A1A] hover:text-[#8B2332] transition-colors"
                   >
                     {studioData.instagram}
                   </a>
@@ -119,14 +119,14 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
 
               {/* Locations */}
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#F2EFE9] rounded-full text-[#6C7D6B] shrink-0">
+                <div className="p-3 bg-[#F0ECE4] rounded-full text-[#8B2332] shrink-0">
                   <MapPin className="w-5 h-5 stroke-[1.5]" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#6C7D6B] font-semibold block">
+                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#8B2332] font-semibold block">
                     Localisation &amp; Accès
                   </span>
-                  <p className="font-serif text-lg text-[#2A2E2C]">
+                  <p className="font-serif text-lg text-[#1A1A1A]">
                     {studioData.location}
                   </p>
                 </div>
@@ -134,18 +134,18 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
 
               {/* Phone */}
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#F2EFE9] rounded-full text-[#6C7D6B] shrink-0">
+                <div className="p-3 bg-[#F0ECE4] rounded-full text-[#8B2332] shrink-0">
                   <Phone className="w-5 h-5 stroke-[1.5]" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#6C7D6B] font-semibold block">
+                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#8B2332] font-semibold block">
                     Téléphone &amp; WhatsApp Direct
                   </span>
                   <a
                     href="https://wa.me/447938766267"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-serif text-lg text-[#2A2E2C] hover:text-[#6C7D6B] transition-colors block"
+                    className="font-serif text-lg text-[#1A1A1A] hover:text-[#8B2332] transition-colors block"
                   >
                     +44 7938 766267
                   </a>
@@ -156,10 +156,10 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
             {/* Instagram Feed Preview */}
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs uppercase tracking-[0.25em] font-medium text-[#2A2E2C]">
+                <span className="text-xs uppercase tracking-[0.25em] font-medium text-[#1A1A1A]">
                   Instagram Journal
                 </span>
-                <span className="text-xs text-[#6C7D6B] font-light">@mylittleboheme_marrakech</span>
+                <span className="text-xs text-[#8B2332] font-light">@mylittleboheme_marrakech</span>
               </div>
               <div className="grid grid-cols-4 gap-3">
                 {instagramPosts.map((post) => (
@@ -168,7 +168,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                     href="https://www.instagram.com/mylittleboheme_marrakech/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative aspect-square rounded-xl overflow-hidden group border border-[#EAE6DD]"
+                    className="relative aspect-square rounded-xl overflow-hidden group border border-[#E6E1D6]"
                   >
                     <img
                       src={post.image}
@@ -176,7 +176,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover img-editorial-hover"
                     />
-                    <div className="absolute inset-0 bg-[#374436]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                    <div className="absolute inset-0 bg-[#5C121F]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
                       <Instagram className="w-4 h-4" />
                     </div>
                   </a>
@@ -191,17 +191,17 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
-            className="lg:col-span-7 bg-[#FBF9F5] p-5 sm:p-12 rounded-2xl border border-[#EAE6DD] shadow-lg"
+            className="lg:col-span-7 bg-[#FAF6F0] p-5 sm:p-12 rounded-2xl border border-[#E6E1D6] shadow-lg"
           >
             {submitted ? (
               <div className="py-16 text-center space-y-6">
-                <div className="w-16 h-16 bg-[#6C7D6B] text-white rounded-full flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 bg-[#8B2332] text-white rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="font-serif text-3xl text-[#2A2E2C]">
+                <h3 className="font-serif text-3xl text-[#1A1A1A]">
                   {t.successMessage}
                 </h3>
-                <p className="text-xs text-[#6C7D6B] max-w-md mx-auto">
+                <p className="text-xs text-[#8B2332] max-w-md mx-auto">
                   Votre message a été transmis directement à notre numéro conciergerie +44 7938 766267.
                 </p>
 
@@ -217,7 +217,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
 
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="w-full sm:w-auto px-6 py-3 border border-[#6C7D6B] text-[#2A2E2C] rounded-full text-xs uppercase tracking-[0.2em] hover:bg-[#6C7D6B] hover:text-white transition-colors cursor-pointer"
+                    className="w-full sm:w-auto px-6 py-3 border border-[#8B2332] text-[#1A1A1A] rounded-full text-xs uppercase tracking-[0.2em] hover:bg-[#8B2332] hover:text-white transition-colors cursor-pointer"
                   >
                     Nouveau message
                   </button>
@@ -228,7 +228,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Full Name */}
                   <div>
-                    <label className="block text-xs uppercase tracking-[0.2em] font-medium text-[#2A2E2C] mb-2">
+                    <label className="block text-xs uppercase tracking-[0.2em] font-medium text-[#1A1A1A] mb-2">
                       {t.fullNameLabel} *
                     </label>
                     <input
@@ -237,13 +237,13 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                       placeholder="e.g. Camille Laurent"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#F2EFE9] border border-[#EAE6DD] rounded-xl text-base sm:text-sm text-[#2A2E2C] focus:outline-hidden focus:border-[#6C7D6B] transition-colors"
+                      className="w-full px-4 py-3 bg-[#F0ECE4] border border-[#E6E1D6] rounded-xl text-base sm:text-sm text-[#1A1A1A] focus:outline-hidden focus:border-[#8B2332] transition-colors"
                     />
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label className="block text-xs uppercase tracking-[0.2em] font-medium text-[#2A2E2C] mb-2">
+                    <label className="block text-xs uppercase tracking-[0.2em] font-medium text-[#1A1A1A] mb-2">
                       {t.emailLabel} *
                     </label>
                     <input
@@ -252,7 +252,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                       placeholder="e.g. camille@domain.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#F2EFE9] border border-[#EAE6DD] rounded-xl text-base sm:text-sm text-[#2A2E2C] focus:outline-hidden focus:border-[#6C7D6B] transition-colors"
+                      className="w-full px-4 py-3 bg-[#F0ECE4] border border-[#E6E1D6] rounded-xl text-base sm:text-sm text-[#1A1A1A] focus:outline-hidden focus:border-[#8B2332] transition-colors"
                     />
                   </div>
                 </div>
@@ -260,13 +260,13 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Service Interest */}
                   <div>
-                    <label className="block text-xs uppercase tracking-[0.2em] font-medium text-[#2A2E2C] mb-2">
+                    <label className="block text-xs uppercase tracking-[0.2em] font-medium text-[#1A1A1A] mb-2">
                       {t.serviceLabel}
                     </label>
                     <select
                       value={formData.serviceType}
                       onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#F2EFE9] border border-[#EAE6DD] rounded-xl text-base sm:text-sm text-[#2A2E2C] focus:outline-hidden focus:border-[#6C7D6B] transition-colors"
+                      className="w-full px-4 py-3 bg-[#F0ECE4] border border-[#E6E1D6] rounded-xl text-base sm:text-sm text-[#1A1A1A] focus:outline-hidden focus:border-[#8B2332] transition-colors"
                     >
                       <option value="Réservation Privatisation Villa">Privatisation Villa Entière</option>
                       <option value="Séjour Court Terme">Séjour Court Terme</option>
@@ -278,7 +278,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
 
                   {/* Location */}
                   <div>
-                    <label className="block text-xs uppercase tracking-[0.2em] font-medium text-[#2A2E2C] mb-2">
+                    <label className="block text-xs uppercase tracking-[0.2em] font-medium text-[#1A1A1A] mb-2">
                       {t.locationLabel}
                     </label>
                     <input
@@ -286,14 +286,14 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                       placeholder="e.g. Paris, Palma, Genève"
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                      className="w-full px-4 py-3 bg-[#F2EFE9] border border-[#EAE6DD] rounded-xl text-base sm:text-sm text-[#2A2E2C] focus:outline-hidden focus:border-[#6C7D6B] transition-colors"
+                      className="w-full px-4 py-3 bg-[#F0ECE4] border border-[#E6E1D6] rounded-xl text-base sm:text-sm text-[#1A1A1A] focus:outline-hidden focus:border-[#8B2332] transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label className="block text-xs uppercase tracking-[0.2em] font-medium text-[#2A2E2C] mb-2">
+                  <label className="block text-xs uppercase tracking-[0.2em] font-medium text-[#1A1A1A] mb-2">
                     {t.messageLabel} *
                   </label>
                   <textarea
@@ -302,7 +302,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                     placeholder="Précisez la période souhaitée, le nombre d'hôtes ou vos questions..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-[#F2EFE9] border border-[#EAE6DD] rounded-xl text-base sm:text-sm text-[#2A2E2C] focus:outline-hidden focus:border-[#6C7D6B] transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-[#F0ECE4] border border-[#E6E1D6] rounded-xl text-base sm:text-sm text-[#1A1A1A] focus:outline-hidden focus:border-[#8B2332] transition-colors resize-none"
                   />
                 </div>
 
@@ -310,7 +310,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 bg-[#6C7D6B] hover:bg-[#374436] text-white rounded-full text-xs font-medium uppercase tracking-[0.25em] transition-all duration-300 shadow-md cursor-pointer flex items-center justify-center gap-3"
+                  className="w-full py-4 bg-[#8B2332] hover:bg-[#5C121F] text-white rounded-full text-xs font-medium uppercase tracking-[0.25em] transition-all duration-300 shadow-md cursor-pointer flex items-center justify-center gap-3"
                 >
                   {loading ? (
                     <span>Envoi du message...</span>

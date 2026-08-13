@@ -16,31 +16,17 @@ interface VideoSource {
   startTime?: number;
   endTime?: number;
 }
-
 const VIDEO_PLAYLIST: VideoSource[] = [
-  {
-    mp4: '/videos/day-architecture.mp4',
-    webm: '/videos/day-architecture.webm',
-    startTime: 0,
-    endTime: 3,
-  },
-  {
-    mp4: '/videos/living.mp4',
-    webm: '/videos/living.webm',
-    startTime: 0,
-    endTime: 3,
-  },
-  {
-    mp4: '/videos/poolside.mp4',
-    webm: '/videos/poolside.webm',
-    startTime: 0,
-    endTime: 3,
-  },
-  {
-    mp4: '/videos/drone-aerial.mp4',
-    startTime: 4,
-    endTime: 8,
-  },
+  { mp4: '/videos/day-architecture.mp4', webm: '/videos/day-architecture.webm', startTime: 0.0, endTime: 1.5 },
+  { mp4: '/videos/living-new.mp4', startTime: 1.5, endTime: 2.8 },
+  { mp4: '/videos/room1.mp4', startTime: 0.0, endTime: 1.5 },
+  { mp4: '/videos/lavabo.mp4', startTime: 0.0, endTime: 1.0 },
+  { mp4: '/videos/living2.mp4', startTime: 0.0, endTime: 1.5 },
+  { mp4: '/videos/poolside.mp4', webm: '/videos/poolside.webm', startTime: 2.8, endTime: 4.1 },
+  { mp4: '/videos/pool2.mp4', startTime: 0.0, endTime: 1.5 },
+  { mp4: '/videos/pool3.mp4', startTime: 0.0, endTime: 1.5 },
+  { mp4: '/videos/football.mp4', startTime: 0.0, endTime: 1.5 },
+  { mp4: '/videos/drone-aerial.mp4', startTime: 4.1, endTime: 9.0 },
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
@@ -78,17 +64,15 @@ export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
         }
         if (isPlaying) video.play().catch(() => {});
       } else {
-        // Pause other videos after the crossfade finishes
-        setTimeout(() => {
-          if (video && idx !== currentIndex) {
-            video.pause();
-            if (source.startTime !== undefined) {
-              video.currentTime = source.startTime;
-            } else {
-              video.currentTime = 0;
-            }
+        // Immediate cut: pause instantly and reset time for next loop
+        if (video) {
+          video.pause();
+          if (source.startTime !== undefined) {
+            video.currentTime = source.startTime;
+          } else {
+            video.currentTime = 0;
           }
-        }, 800);
+        }
       }
     });
   }, [currentIndex, isPlaying]);
@@ -104,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
   const currentVideo = VIDEO_PLAYLIST[currentIndex];
 
   return (
-    <section id="hero" className="relative h-screen w-full flex items-end justify-center overflow-hidden bg-[#1A1D1B] pt-16 sm:pt-20 pb-16 sm:pb-20">
+    <section id="hero" className="relative h-screen w-full flex items-end justify-center overflow-hidden bg-[#111111] pt-16 sm:pt-20 pb-16 sm:pb-20">
       {/* Background Video - smoothly crossfades between all videos */}
       <div className="absolute inset-0 z-0 bg-black">
         {VIDEO_PLAYLIST.map((videoSource, idx) => (
@@ -115,7 +99,7 @@ export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
             playsInline
             onEnded={handleVideoEnded}
             onTimeUpdate={() => handleTimeUpdate(idx)}
-            className={`absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.02] transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.02] ${
               idx === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
@@ -220,7 +204,7 @@ export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
             animate={{ y: [0, 4, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
           >
-            <ArrowDown className="w-3.5 h-3.5 text-[#8E9E8D]" />
+            <ArrowDown className="w-3.5 h-3.5 text-[#A64654]" />
           </motion.div>
         </motion.button>
       )}

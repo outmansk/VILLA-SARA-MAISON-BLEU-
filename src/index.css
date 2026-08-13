@@ -4,15 +4,16 @@
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
 
-  --color-sage: #6C7D6B;
-  --color-sage-dark: #374436;
-  --color-sage-light: #8E9E8D;
-  --color-sage-muted: #CBD4CB;
-  --color-warm-white: #FBF9F5;
-  --color-beige-soft: #F2EFE9;
-  --color-beige-card: #EAE6DD;
-  --color-charcoal: #2A2E2C;
-  --color-charcoal-muted: #5A605D;
+  --color-burgundy: #8B2332;
+  --color-burgundy-dark: #5C121F;
+  --color-burgundy-light: #A64654;
+  --color-burgundy-muted: #E8D1D5;
+  --color-cream: #FAF6F0;
+  --color-cream-soft: #F0ECE4;
+  --color-cream-card: #E6E1D6;
+  --color-charcoal: #1A1A1A;
+  --color-charcoal-muted: #4A4A4A;
+  --color-gold: #C5A059;
 }
 
 @layer base {
@@ -48,14 +49,14 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FBF9F5;
+  background: #FAF6F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD4CB;
+  background: #E8D1D5;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6C7D6B;
+  background: #8B2332;
 }
 
 /* Image zoom effect class */

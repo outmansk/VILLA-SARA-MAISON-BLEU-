@@ -56,14 +56,14 @@ export const MobileBookingBar: React.FC<MobileBookingBarProps> = ({ onNavigateTo
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="absolute bottom-0 left-0 right-0 bg-white shadow-2xl rounded-t-3xl border-t border-[#EAE6DD]"
+            className="absolute bottom-0 left-0 right-0 bg-white shadow-2xl rounded-t-3xl border-t border-[#E6E1D6]"
           >
             {/* Header */}
-            <div className="flex justify-between items-center p-5 border-b border-[#EAE6DD]">
-              <h3 className="font-serif text-xl text-[#2A2E2C]">{t.expandedTitle}</h3>
+            <div className="flex justify-between items-center p-5 border-b border-[#E6E1D6]">
+              <h3 className="font-serif text-xl text-[#1A1A1A]">{t.expandedTitle}</h3>
               <button 
                 onClick={() => setIsExpanded(false)}
-                className="p-2 text-[#5A605D] hover:bg-[#F2EFE9] rounded-full transition-colors"
+                className="p-2 text-[#4A4A4A] hover:bg-[#F0ECE4] rounded-full transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -72,60 +72,60 @@ export const MobileBookingBar: React.FC<MobileBookingBarProps> = ({ onNavigateTo
             {/* Form */}
             <div className="p-5 space-y-4">
               {/* Dates */}
-              <div className="flex items-center justify-between border-b border-[#EAE6DD] pb-4">
-                <span className="text-xs font-sans tracking-widest text-[#2A2E2C] uppercase font-semibold">
+              <div className="flex items-center justify-between border-b border-[#E6E1D6] pb-4">
+                <span className="text-xs font-sans tracking-widest text-[#1A1A1A] uppercase font-semibold">
                   {t.dates}
                 </span>
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-[#6C7D6B]" />
+                  <Calendar className="w-4 h-4 text-[#8B2332]" />
                   <input
                     type="date"
                     value={checkIn}
                     onChange={(e) => setCheckIn(e.target.value)}
-                    className="bg-transparent text-xs text-[#5A605D] focus:outline-none w-24"
+                    className="bg-transparent text-xs text-[#4A4A4A] focus:outline-none w-24"
                   />
-                  <span className="text-[#5A605D]">-</span>
+                  <span className="text-[#4A4A4A]">-</span>
                   <input
                     type="date"
                     value={checkOut}
                     onChange={(e) => setCheckOut(e.target.value)}
-                    className="bg-transparent text-xs text-[#5A605D] focus:outline-none w-24"
+                    className="bg-transparent text-xs text-[#4A4A4A] focus:outline-none w-24"
                   />
                 </div>
               </div>
 
               {/* Adults */}
-              <div className="flex items-center justify-between border-b border-[#EAE6DD] pb-4">
-                <span className="text-xs font-sans tracking-widest text-[#2A2E2C] uppercase font-semibold">
+              <div className="flex items-center justify-between border-b border-[#E6E1D6] pb-4">
+                <span className="text-xs font-sans tracking-widest text-[#1A1A1A] uppercase font-semibold">
                   {t.adults}
                 </span>
                 <div className="flex items-center gap-4">
                   <button 
                     onClick={() => setAdults(Math.max(1, adults - 1))}
-                    className="w-6 h-6 flex items-center justify-center text-[#5A605D] text-lg"
+                    className="w-6 h-6 flex items-center justify-center text-[#4A4A4A] text-lg"
                   >−</button>
                   <span className="text-sm font-semibold w-4 text-center">{adults}</span>
                   <button 
                     onClick={() => setAdults(Math.min(12, adults + 1))}
-                    className="w-6 h-6 flex items-center justify-center text-[#5A605D] text-lg"
+                    className="w-6 h-6 flex items-center justify-center text-[#4A4A4A] text-lg"
                   >+</button>
                 </div>
               </div>
 
               {/* Children */}
-              <div className="flex items-center justify-between border-b border-[#EAE6DD] pb-4">
-                <span className="text-xs font-sans tracking-widest text-[#2A2E2C] uppercase font-semibold">
+              <div className="flex items-center justify-between border-b border-[#E6E1D6] pb-4">
+                <span className="text-xs font-sans tracking-widest text-[#1A1A1A] uppercase font-semibold">
                   {t.children}
                 </span>
                 <div className="flex items-center gap-4">
                   <button 
                     onClick={() => setChildren(Math.max(0, children - 1))}
-                    className="w-6 h-6 flex items-center justify-center text-[#5A605D] text-lg"
+                    className="w-6 h-6 flex items-center justify-center text-[#4A4A4A] text-lg"
                   >−</button>
                   <span className="text-sm font-semibold w-4 text-center">{children}</span>
                   <button 
                     onClick={() => setChildren(Math.min(10, children + 1))}
-                    className="w-6 h-6 flex items-center justify-center text-[#5A605D] text-lg"
+                    className="w-6 h-6 flex items-center justify-center text-[#4A4A4A] text-lg"
                   >+</button>
                 </div>
               </div>
@@ -134,7 +134,7 @@ export const MobileBookingBar: React.FC<MobileBookingBarProps> = ({ onNavigateTo
             {/* CTA Button Inside Expanded */}
             <button
               onClick={handleSearch}
-              className="w-full py-4 bg-[#B59960] text-white font-sans text-xs uppercase tracking-[0.2em] font-semibold flex items-center justify-center transition-colors active:bg-[#A38953]"
+              className="w-full py-4 bg-[#C5A059] text-white font-sans text-xs uppercase tracking-[0.2em] font-semibold flex items-center justify-center transition-colors active:bg-[#A38953]"
             >
               {t.search}
             </button>
@@ -154,7 +154,7 @@ export const MobileBookingBar: React.FC<MobileBookingBarProps> = ({ onNavigateTo
           >
             <button
               onClick={() => setIsExpanded(true)}
-              className="w-full py-4 bg-[#B59960] text-white font-sans text-xs uppercase tracking-[0.2em] font-semibold flex items-center justify-center shadow-[0_-4px_10px_rgba(0,0,0,0.1)] active:bg-[#A38953] transition-colors"
+              className="w-full py-4 bg-[#C5A059] text-white font-sans text-xs uppercase tracking-[0.2em] font-semibold flex items-center justify-center shadow-[0_-4px_10px_rgba(0,0,0,0.1)] active:bg-[#A38953] transition-colors"
             >
               {t.barTitle}
             </button>

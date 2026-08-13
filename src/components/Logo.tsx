@@ -13,11 +13,11 @@ export const Logo: React.FC<LogoProps> = ({
 }) => {
   // Color presets based on logo specs
   const colors = {
-    badge: { bg: '#6C7D6B', fg: '#FBF9F5' },
-    'monochrome-dark': { bg: '#374436', fg: '#FBF9F5' },
-    'transparent-dark': { bg: 'transparent', fg: '#374436' },
-    'transparent-light': { bg: 'transparent', fg: '#FBF9F5' },
-    wordmark: { bg: 'transparent', fg: '#2A2E2C' }
+    badge: { bg: '#8B2332', fg: '#FAF6F0' },
+    'monochrome-dark': { bg: '#5C121F', fg: '#FAF6F0' },
+    'transparent-dark': { bg: 'transparent', fg: '#5C121F' },
+    'transparent-light': { bg: 'transparent', fg: '#FAF6F0' },
+    wordmark: { bg: 'transparent', fg: '#1A1A1A' }
   };
 
   const current = colors[variant] || colors.badge;
@@ -25,10 +25,10 @@ export const Logo: React.FC<LogoProps> = ({
   if (variant === 'wordmark') {
     return (
       <div className={`inline-flex flex-col items-center justify-center text-center ${className}`}>
-        <span className="font-serif tracking-[0.25em] text-lg sm:text-xl md:text-2xl font-medium uppercase text-[#2A2E2C]">
+        <span className="font-serif tracking-[0.25em] text-lg sm:text-xl md:text-2xl font-medium uppercase text-[#1A1A1A]">
           MY LITTLE BOHÈME
         </span>
-        <span className="text-[10px] sm:text-[11px] font-sans tracking-[0.35em] text-[#6C7D6B] uppercase mt-0.5">
+        <span className="text-[10px] sm:text-[11px] font-sans tracking-[0.35em] text-[#8B2332] uppercase mt-0.5">
           BY SARLA • INTERIOR
         </span>
       </div>

@@ -15,18 +15,18 @@ export const Services: React.FC<ServicesProps> = ({ onInquire, lang }) => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Compass':
-        return <Compass className="w-7 h-7 text-[#6C7D6B] stroke-[1.5]" />;
+        return <Compass className="w-7 h-7 text-[#8B2332] stroke-[1.5]" />;
       case 'Sparkles':
-        return <Sparkles className="w-7 h-7 text-[#6C7D6B] stroke-[1.5]" />;
+        return <Sparkles className="w-7 h-7 text-[#8B2332] stroke-[1.5]" />;
       case 'Feather':
-        return <Feather className="w-7 h-7 text-[#6C7D6B] stroke-[1.5]" />;
+        return <Feather className="w-7 h-7 text-[#8B2332] stroke-[1.5]" />;
       default:
-        return <Compass className="w-7 h-7 text-[#6C7D6B] stroke-[1.5]" />;
+        return <Compass className="w-7 h-7 text-[#8B2332] stroke-[1.5]" />;
     }
   };
 
   return (
-    <section id="services" className="py-14 sm:py-24 md:py-36 bg-[#FBF9F5] border-t border-[#EAE6DD]/60 overflow-hidden">
+    <section id="services" className="py-14 sm:py-24 md:py-36 bg-[#FAF6F0] border-t border-[#E6E1D6]/60 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <motion.div
@@ -37,16 +37,16 @@ export const Services: React.FC<ServicesProps> = ({ onInquire, lang }) => {
           className="mb-10 sm:mb-20 text-center max-w-3xl mx-auto"
         >
           <div className="inline-flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-            <div className="h-[1px] w-8 sm:w-12 bg-[#6C7D6B]/40" />
-            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.2em] sm:tracking-[0.3em] font-medium text-[#6C7D6B]">
+            <div className="h-[1px] w-8 sm:w-12 bg-[#8B2332]/40" />
+            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.4em] font-medium text-[#8B2332]">
               {t.eyebrow}
             </span>
-            <div className="h-[1px] w-8 sm:w-12 bg-[#6C7D6B]/40" />
+            <div className="h-[1px] w-8 sm:w-12 bg-[#8B2332]/40" />
           </div>
-          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-light text-[#2A2E2C] leading-snug">
+          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl font-light text-[#1A1A1A] leading-snug">
             {t.title}
           </h2>
-          <p className="mt-2 sm:mt-4 text-xs sm:text-base font-sans font-light text-[#5A605D]">
+          <p className="mt-2 sm:mt-4 text-xs sm:text-base font-sans font-light text-[#4A4A4A]">
             {t.subtitle}
           </p>
         </motion.div>
@@ -62,15 +62,15 @@ export const Services: React.FC<ServicesProps> = ({ onInquire, lang }) => {
               transition={{ duration: 0.8, delay: index * 0.15, ease: [0.25, 1, 0.5, 1] }}
               className="flex flex-col items-center text-center p-6"
             >
-              <div className="mb-6 text-[#B59960]">
+              <div className="mb-6 text-[#C5A059]">
                 {getIcon(service.icon)}
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#2A2E2C] mb-3">
+              <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#1A1A1A] mb-3">
                 {service.title}
               </h3>
 
-              <p className="text-xs uppercase tracking-[0.2em] text-[#6C7D6B] font-medium">
+              <p className="text-xs uppercase tracking-[0.2em] text-[#8B2332] font-medium">
                 {service.tagline}
               </p>
             </motion.div>

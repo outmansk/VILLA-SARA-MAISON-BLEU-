@@ -57,7 +57,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FBF9F5] text-[#2A2E2C] font-sans antialiased selection:bg-[#6C7D6B] selection:text-white">
+    <div className="min-h-screen bg-[#FAF6F0] text-[#1A1A1A] font-sans antialiased selection:bg-[#8B2332] selection:text-white">
       {/* Editorial Navigation Header */}
       <Navbar
         activeSection={activeSection}
