@@ -34,6 +34,23 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileMenuOpen(false);
+    };
+
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { id: 'about', label: t.about },
     { id: 'suites', label: t.villa },
@@ -113,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ${
+        className={`fixed top-0 left-0 right-0 z-[70] transition-all duration-700 ${
           scrolled
             ? 'bg-white/95 backdrop-blur-md border-b border-[#E6E1D6] py-3 shadow-xs'
             : 'bg-white md:bg-transparent border-b border-[#E6E1D6] md:border-transparent py-3 md:py-7'
@@ -192,6 +209,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-1 text-[#1A1A1A] hover:text-[#8B2332] transition-colors cursor-pointer focus:outline-hidden"
                 aria-label="Toggle Navigation Menu"
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -204,22 +223,21 @@ export const Navbar: React.FC<NavbarProps> = ({
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
-            className="fixed inset-0 z-30 bg-[#FAF6F0] pt-24 px-8 pb-10 flex flex-col justify-between lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-[60] h-[100dvh] bg-[#FAF6F0] pt-24 px-6 pb-6 flex flex-col lg:hidden overflow-y-auto overscroll-contain"
           >
-            <div className="flex flex-col items-center justify-center space-y-4 my-auto">
-              <Logo variant="badge" size={60} className="mb-1" />
-
+            <div className="flex flex-1 flex-col items-center justify-center py-4">
               {/* Mobile Drawer Navigation Links */}
-              <div className="flex flex-col items-center space-y-4 my-2">
+              <div className="flex flex-col items-center gap-1 sm:gap-2">
                 {navLinks.map((link) => (
                   <button
                     key={link.id}
                     onClick={() => handleLinkClick(link.id)}
-                    className={`font-serif text-2xl tracking-widest transition-colors cursor-pointer py-1.5 ${
+                    className={`font-serif text-xl sm:text-2xl tracking-widest transition-colors cursor-pointer py-1.5 ${
                       activeSection === link.id ? 'text-[#8B2332] font-medium' : 'text-[#1A1A1A] hover:text-[#8B2332]'
                     }`}
                   >
@@ -228,7 +246,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 ))}
               </div>
 
-              <div className="pt-3 w-full max-w-xs">
+              <div className="pt-4 w-full max-w-sm">
                 <button
                   onClick={() => handleLinkClick('reservation')}
                   className="w-full py-3.5 bg-[#8B2332] text-white rounded-full text-xs font-medium uppercase tracking-[0.25em] hover:bg-[#5C121F] transition-colors cursor-pointer text-center flex items-center justify-center gap-2"
@@ -239,7 +257,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
             </div>
 
-            <div className="text-center pt-6 border-t border-[#E6E1D6]">
+            <div className="text-center pt-4 border-t border-[#E6E1D6] shrink-0">
               <p className="text-xs tracking-widest text-[#8B2332] uppercase">Route de Fès • Marrakech • Maroc</p>
               <p className="text-xs text-[#4A4A4A] mt-1">reservation@villalittleboheme.com</p>
             </div>
