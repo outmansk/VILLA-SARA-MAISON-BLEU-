@@ -39,7 +39,7 @@ L'architecture est celle d'une Single Page Application (SPA) monolithique très 
 ### Pages et Composants Clés
 Le site est un one-pager. `App.tsx` assemble les sections suivantes :
 - `Navbar.tsx` : Navigation (transparente puis fond plein au scroll, sélecteur de langue).
-- `Hero.tsx` : Vidéos plein écran (crossfade) avec grand titre.
+- `Hero.tsx` : Montages vidéo responsive desktop/mobile (WebM + MP4), posters immédiats et fallback sans écran noir.
 - `About.tsx` : Section de présentation minimaliste.
 - `Services.tsx` : Grille minimaliste des prestations (icône, titre, sous-titre).
 - `Portfolio.tsx` : Galerie photos épurée.
@@ -75,7 +75,7 @@ const t = translations[lang].sectionName;
 
 > [!WARNING]
 > **DO NOT BREAK (Règles Critiques) :**
-> 1. **Vidéos Hero** : Ne modifiez pas l'implémentation du `Hero.tsx` sans précaution. Il utilise plusieurs `<video>` montées simultanément avec transition `opacity` pour éviter l'écran noir de rechargement. Ne pas utiliser de rendu conditionnel (`if/else` sur les vidéos) car cela provoque des flashes noirs.
+> 1. **Vidéo Hero** : `Hero.tsx` utilise des montages optimisés desktop et mobile avec sources WebM/MP4 et posters WebP toujours présents en arrière-plan. Le navigateur sélectionne les médias mobiles sous 768 px. Ne réintroduisez pas de lecture aléatoire avec seeks (`currentTime`) dans plusieurs gros fichiers : cette approche provoque des attentes réseau et des écrans noirs. La vidéo doit apparaître en fondu uniquement après `canplay`, et le poster responsive doit rester le fallback permanent.
 > 2. **Barre WhatsApp Mobile** : La `MobileBookingBar.tsx` génère directement une URL `wa.me` au lieu de remplir un formulaire. Ne pas casser cette UX directe voulue par le client.
 > 3. **Minimalisme** : Lors de l'ajout d'une section, **ne mettez pas de descriptions longues, de listes à puces complexes ou de bordures épaisses**. Gardez des espaces immenses (`py-24`, `py-36`).
 
@@ -86,7 +86,9 @@ const t = translations[lang].sectionName;
 
 ### Performance et Images
 - Charger les images via le dossier `/public` pour l'instant.
-- Les vidéos du Hero doivent être encodées en H.264 (mp4) et WebM, compressées pour le web.
+- Desktop : `/public/videos/hero-optimized.webm`, `/public/videos/hero-optimized.mp4` et `/public/videos/hero-poster.webp` (16:9).
+- Mobile : `/public/videos/hero-mobile.webm`, `/public/videos/hero-mobile.mp4` et `/public/videos/hero-mobile-poster.webp` (9:16, sélectionnés sous 768 px).
+- Conserver le montage autour de 720p/24 fps, sans piste audio, avec chaque fichier vidéo sous 6 Mo et `faststart` pour le MP4.
 - Limiter les re-renders en utilisant `useMemo` et `useCallback` là où le traitement est lourd (par ex: manipulation des dates dans le Booking).
 
 ## 6. Commandes de Build & Déploiement

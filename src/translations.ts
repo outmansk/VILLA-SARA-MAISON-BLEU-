@@ -24,6 +24,10 @@ export interface TranslationSchema {
       minimalist: string;
       scandinavian: string;
     };
+    playVideo: string;
+    pauseVideo: string;
+    showContent: string;
+    hideContent: string;
     explore: string;
   };
   about: {
@@ -167,6 +171,10 @@ export const translations: Record<Language, TranslationSchema> = {
         minimalist: 'Sanctuaire Épure',
         scandinavian: 'Douceur Naturelle'
       },
+      playVideo: 'Lire la vidéo',
+      pauseVideo: 'Mettre la vidéo en pause',
+      showContent: 'Afficher le contenu',
+      hideContent: 'Masquer le contenu',
       explore: 'Découvrir'
     },
     about: {
@@ -328,6 +336,10 @@ export const translations: Record<Language, TranslationSchema> = {
         minimalist: 'Minimalist Sanctuary',
         scandinavian: 'Natural Calm'
       },
+      playVideo: 'Play video',
+      pauseVideo: 'Pause video',
+      showContent: 'Show content',
+      hideContent: 'Hide content',
       explore: 'Discover'
     },
     about: {
@@ -489,6 +501,10 @@ export const translations: Record<Language, TranslationSchema> = {
         minimalist: 'Santuario Elegante',
         scandinavian: 'Calma Natural'
       },
+      playVideo: 'Reproducir vídeo',
+      pauseVideo: 'Pausar vídeo',
+      showContent: 'Mostrar contenido',
+      hideContent: 'Ocultar contenido',
       explore: 'Descubrir'
     },
     about: {

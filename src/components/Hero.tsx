@@ -1,6 +1,6 @@
-﻿import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowDown, Volume2, VolumeX, Play, Pause, Eye, EyeOff } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { ArrowDown, Eye, EyeOff, Pause, Play } from 'lucide-react';
 import { Language, translations } from '../translations';
 
 interface HeroProps {
@@ -8,229 +8,89 @@ interface HeroProps {
   lang: Language;
 }
 
-interface VideoSegment {
-  mp4: string;
-  startTime: number;
-  endTime: number;
-}
-
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-// 12 videos x 3 segments = 36 clips de 1-1.5s
-const ALL_SEGMENTS: VideoSegment[] = [
-  { mp4: '/videos/living-new.mp4', startTime: 0, endTime: 1.5 },
-  { mp4: '/videos/living-new.mp4', startTime: 6, endTime: 7.5 },
-  { mp4: '/videos/living-new.mp4', startTime: 12, endTime: 13.5 },
-  { mp4: '/videos/room1.mp4', startTime: 0, endTime: 1.5 },
-  { mp4: '/videos/room1.mp4', startTime: 3, endTime: 4.5 },
-  { mp4: '/videos/room1.mp4', startTime: 6, endTime: 7.5 },
-  { mp4: '/videos/lavabo.mp4', startTime: 0, endTime: 1.0 },
-  { mp4: '/videos/lavabo.mp4', startTime: 1.5, endTime: 2.5 },
-  { mp4: '/videos/lavabo.mp4', startTime: 3.0, endTime: 4.0 },
-  { mp4: '/videos/living2.mp4', startTime: 0, endTime: 1.5 },
-  { mp4: '/videos/living2.mp4', startTime: 2.5, endTime: 4.0 },
-  { mp4: '/videos/living2.mp4', startTime: 5.0, endTime: 6.5 },
-  { mp4: '/videos/poolside.mp4', startTime: 0, endTime: 1.5 },
-  { mp4: '/videos/poolside.mp4', startTime: 2.5, endTime: 4.0 },
-  { mp4: '/videos/poolside.mp4', startTime: 5.0, endTime: 6.5 },
-  { mp4: '/videos/pool2.mp4', startTime: 0, endTime: 1.5 },
-  { mp4: '/videos/pool2.mp4', startTime: 5, endTime: 6.5 },
-  { mp4: '/videos/pool2.mp4', startTime: 10, endTime: 11.5 },
-  { mp4: '/videos/pool3.mp4', startTime: 0, endTime: 1.5 },
-  { mp4: '/videos/pool3.mp4', startTime: 5, endTime: 6.5 },
-  { mp4: '/videos/pool3.mp4', startTime: 10, endTime: 11.5 },
-  { mp4: '/videos/football.mp4', startTime: 2, endTime: 3.5 },
-  { mp4: '/videos/football.mp4', startTime: 8, endTime: 9.5 },
-  { mp4: '/videos/football.mp4', startTime: 14, endTime: 15.5 },
-  { mp4: '/videos/drone-aerial.mp4', startTime: 0, endTime: 1.5 },
-  { mp4: '/videos/drone-aerial.mp4', startTime: 2.5, endTime: 4.0 },
-  { mp4: '/videos/drone-aerial.mp4', startTime: 5.0, endTime: 6.5 },
-  { mp4: '/videos/Luxury_villa_and_swimming_pool_202608131911.mp4', startTime: 0, endTime: 1.5 },
-  { mp4: '/videos/Luxury_villa_and_swimming_pool_202608131911.mp4', startTime: 5, endTime: 6.5 },
-  { mp4: '/videos/Luxury_villa_and_swimming_pool_202608131911.mp4', startTime: 10, endTime: 11.5 },
-  { mp4: '/videos/Create_real_estate_video_1080p_202608141256.mp4', startTime: 0, endTime: 1.5 },
-  { mp4: '/videos/Create_real_estate_video_1080p_202608141256.mp4', startTime: 4, endTime: 5.5 },
-  { mp4: '/videos/Create_real_estate_video_1080p_202608141256.mp4', startTime: 8, endTime: 9.5 },
-  { mp4: '/videos/Create_real_estate_video_1080p_202608141303.mp4', startTime: 0, endTime: 1.5 },
-  { mp4: '/videos/Create_real_estate_video_1080p_202608141303.mp4', startTime: 5, endTime: 6.5 },
-  { mp4: '/videos/Create_real_estate_video_1080p_202608141303.mp4', startTime: 10, endTime: 11.5 },
-];
+const HERO_POSTER = '/videos/hero-poster.webp';
+const HERO_MOBILE_POSTER = '/videos/hero-mobile-poster.webp';
 
 export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
-  const [playlist] = useState<VideoSegment[]>(() => shuffle(ALL_SEGMENTS));
-  const [currentSegIdx, setCurrentSegIdx] = useState(0);
-  const [activeBuffer, setActiveBuffer]   = useState(0);
-  const [bufferVisible, setBufferVisible] = useState<[boolean, boolean]>([true, false]);
-  const [isPlaying, setIsPlaying]         = useState(true);
-  const [isMuted, setIsMuted]             = useState(true);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isVideoReady, setIsVideoReady] = useState(false);
+  const [hasVideoError, setHasVideoError] = useState(false);
   const [cinematicMode, setCinematicMode] = useState(false);
-
-  const activeBufferRef    = useRef(0);
-  const currentSegIdxRef   = useRef(0);
-  const isTransitioningRef = useRef(false);
-  const isPlayingRef       = useRef(true);
-  const isMutedRef         = useRef(true);
-  const videoRefs          = useRef<(HTMLVideoElement | null)[]>([null, null]);
-  const playlistRef        = useRef(playlist);
 
   const t = translations[lang].hero;
 
-  // ── Promise-based buffer preparation ─────────────────────────────────────────
-  // Waits for loadedmetadata + seeked before resolving so the buffer is truly ready.
-  const prepareBuffer = useCallback(
-    (bufIdx: number, segIdx: number): Promise<void> =>
-      new Promise<void>((resolve) => {
-        const seg   = playlistRef.current[segIdx % playlistRef.current.length];
-        const video = videoRefs.current[bufIdx];
-        if (!video || !seg) { resolve(); return; }
-
-        video.muted = isMutedRef.current;
-
-        const doSeek = () => {
-          // If already at the correct position, resolve immediately
-          if (Math.abs(video.currentTime - seg.startTime) < 0.05) {
-            resolve();
-            return;
-          }
-          const onSeeked = () => {
-            video.removeEventListener('seeked', onSeeked);
-            resolve();
-          };
-          video.addEventListener('seeked', onSeeked);
-          video.currentTime = seg.startTime;
-        };
-
-        const absUrl = new URL(seg.mp4, window.location.href).href;
-        if (video.src !== absUrl) {
-          // Different file: wait for metadata before seeking
-          const onMeta = () => {
-            video.removeEventListener('loadedmetadata', onMeta);
-            doSeek();
-          };
-          video.addEventListener('loadedmetadata', onMeta);
-          video.src = seg.mp4;
-          video.load();
-        } else {
-          // Same file: just seek
-          doSeek();
-        }
-      }),
-    []
-  );
-
-  // ── Crossfade to next segment ─────────────────────────────────────────────────
-  const goToNext = useCallback(async () => {
-    if (isTransitioningRef.current) return;
-    isTransitioningRef.current = true;
-
-    const currentBuf = activeBufferRef.current;
-    const nextBuf    = 1 - currentBuf;
-    const nextSegIdx = (currentSegIdxRef.current + 1) % playlistRef.current.length;
-
-    // Play the preloaded standby buffer
-    const nextVideo = videoRefs.current[nextBuf];
-    if (nextVideo && isPlayingRef.current) {
-      nextVideo.muted = isMutedRef.current;
-      nextVideo.play().catch(() => {});
-    }
-
-    // Crossfade: show nextBuf, hide currentBuf
-    setBufferVisible(nextBuf === 0 ? [true, false] : [false, true]);
-
-    setTimeout(async () => {
-      setCurrentSegIdx(nextSegIdx);
-      setActiveBuffer(nextBuf);
-      currentSegIdxRef.current = nextSegIdx;
-      activeBufferRef.current  = nextBuf;
-
-      // Preload segment after next into the now-hidden old buffer
-      const afterNextIdx = (nextSegIdx + 1) % playlistRef.current.length;
-      await prepareBuffer(currentBuf, afterNextIdx);
-
-      isTransitioningRef.current = false;
-    }, 650);
-  }, [prepareBuffer]);
-
-  // ── Bootstrap ─────────────────────────────────────────────────────────────────
-  useEffect(() => {
-    playlistRef.current = playlist;
-
-    (async () => {
-      // Prepare seg 0 in buffer 0, then play
-      await prepareBuffer(0, 0);
-      const v0 = videoRefs.current[0];
-      if (v0) v0.play().catch(() => {});
-
-      // Preload seg 1 in buffer 1 (do not play yet)
-      await prepareBuffer(1, 1 % playlist.length);
-    })();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // ── Time monitor to catch segment end ────────────────────────────────────────
-  const handleTimeUpdate = useCallback((bufIdx: number) => {
-    if (bufIdx !== activeBufferRef.current) return;
-    const v   = videoRefs.current[bufIdx];
-    if (!v)   return;
-    const seg = playlistRef.current[currentSegIdxRef.current];
-    if (!seg) return;
-    if (v.currentTime >= seg.endTime) {
-      goToNext();
-    }
-  }, [goToNext]);
-
-  const handleEnded = useCallback((bufIdx: number) => {
-    if (bufIdx === activeBufferRef.current) goToNext();
-  }, [goToNext]);
-
-  // ── Player controls ───────────────────────────────────────────────────────────
-  const togglePlay = () => {
-    const v          = videoRefs.current[activeBufferRef.current];
-    const newPlaying = !isPlayingRef.current;
-    isPlayingRef.current = newPlaying;
-    if (v) { newPlaying ? v.play().catch(() => {}) : v.pause(); }
-    setIsPlaying(newPlaying);
+  const handleVideoReady = () => {
+    setHasVideoError(false);
+    setIsVideoReady(true);
   };
 
-  const toggleMute = () => {
-    const newMuted     = !isMutedRef.current;
-    isMutedRef.current = newMuted;
-    videoRefs.current.forEach(v => { if (v) v.muted = newMuted; });
-    setIsMuted(newMuted);
+  const handleVideoError = () => {
+    setHasVideoError(true);
+    setIsVideoReady(false);
+    setIsPlaying(false);
   };
 
-  const DOT_COUNT = 7;
-  const halfDots  = Math.floor(DOT_COUNT / 2);
-  const total     = playlist.length;
+  const togglePlay = async () => {
+    const video = videoRef.current;
+    if (!video || hasVideoError) return;
 
-  // ── Render ────────────────────────────────────────────────────────────────────
+    if (video.paused) {
+      try {
+        await video.play();
+        setIsPlaying(true);
+      } catch {
+        setIsPlaying(false);
+      }
+      return;
+    }
+
+    video.pause();
+    setIsPlaying(false);
+  };
+
   return (
     <section
       id="hero"
       className="relative h-screen w-full flex items-end justify-center overflow-hidden bg-[#111111] pt-16 sm:pt-20 pb-16 sm:pb-20"
     >
-      {/* Double-buffer background */}
       <div className="absolute inset-0 z-0 bg-black">
-        {([0, 1] as const).map((bufIdx) => (
-          <video
-            key={bufIdx}
-            ref={(el) => { videoRefs.current[bufIdx] = el; }}
-            playsInline
-            onTimeUpdate={() => handleTimeUpdate(bufIdx)}
-            onEnded={() => handleEnded(bufIdx)}
-            className={`absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.02] transition-opacity duration-700 ease-in-out ${
-              bufferVisible[bufIdx] ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
+        {/* The poster remains behind the video, so a slow or failed connection never shows black. */}
+        <picture>
+          <source media="(max-width: 767px)" srcSet={HERO_MOBILE_POSTER} type="image/webp" />
+          <img
+            src={HERO_POSTER}
+            alt=""
+            aria-hidden="true"
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
-        ))}
+        </picture>
 
-        {/* Gradient overlay */}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster={HERO_POSTER}
+          aria-hidden="true"
+          tabIndex={-1}
+          onCanPlay={handleVideoReady}
+          onPlaying={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onError={handleVideoError}
+          className={`absolute inset-0 h-full w-full object-cover object-center filter brightness-[0.95] contrast-[1.02] transition-opacity duration-700 ease-out ${
+            isVideoReady && !hasVideoError ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <source media="(max-width: 767px)" src="/videos/hero-mobile.webm" type="video/webm" />
+          <source media="(max-width: 767px)" src="/videos/hero-mobile.mp4" type="video/mp4" />
+          <source src="/videos/hero-optimized.webm" type="video/webm" />
+          <source src="/videos/hero-optimized.mp4" type="video/mp4" />
+        </video>
+
         <div
           className={`absolute inset-0 z-20 transition-opacity duration-700 ${
             cinematicMode
@@ -240,28 +100,6 @@ export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
         />
       </div>
 
-      {/* Sliding-window dot indicator */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5">
-        {Array.from({ length: DOT_COUNT }).map((_, i) => {
-          const offset   = i - halfDots;
-          const dotIdx   = ((currentSegIdx + offset) % total + total) % total;
-          const isActive = dotIdx === currentSegIdx;
-          return (
-            <div
-              key={i}
-              className={`rounded-full transition-all duration-500 ${
-                isActive
-                  ? 'w-6 h-1.5 bg-white'
-                  : Math.abs(offset) === 1
-                  ? 'w-1.5 h-1.5 bg-white/50'
-                  : 'w-1 h-1 bg-white/20'
-              }`}
-            />
-          );
-        })}
-      </div>
-
-      {/* Main headline */}
       <AnimatePresence>
         {!cinematicMode && (
           <div className="relative z-30 w-full max-w-7xl mx-auto px-5 sm:px-10 pb-6 sm:pb-10">
@@ -283,11 +121,12 @@ export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
         )}
       </AnimatePresence>
 
-      {/* Controls */}
       <div className="absolute bottom-5 right-4 sm:right-8 z-30 flex items-center gap-2">
         <button
+          type="button"
           onClick={() => setCinematicMode(!cinematicMode)}
-          title={cinematicMode ? 'Afficher le texte' : 'Mode cinematique'}
+          title={cinematicMode ? t.showContent : t.hideContent}
+          aria-label={cinematicMode ? t.showContent : t.hideContent}
           className={`p-2 sm:p-2.5 backdrop-blur-md border rounded-full transition-all cursor-pointer shadow-lg ${
             cinematicMode
               ? 'bg-white text-black border-white'
@@ -297,30 +136,25 @@ export const Hero: React.FC<HeroProps> = ({ onDiscoverClick, lang }) => {
           {cinematicMode ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
         </button>
 
-        <button
-          onClick={togglePlay}
-          className="p-2 sm:p-2.5 bg-black/50 backdrop-blur-md text-white/90 border border-white/20 rounded-full hover:bg-black/70 transition-colors cursor-pointer shadow-lg"
-        >
-          {isPlaying
-            ? <Pause className="w-3.5 h-3.5 text-white" />
-            : <Play  className="w-3.5 h-3.5 text-white" />
-          }
-        </button>
-
-        <button
-          onClick={toggleMute}
-          className="p-2 sm:p-2.5 bg-black/50 backdrop-blur-md text-white/90 border border-white/20 rounded-full hover:bg-black/70 transition-colors cursor-pointer shadow-lg"
-        >
-          {isMuted
-            ? <VolumeX className="w-3.5 h-3.5 text-white" />
-            : <Volume2 className="w-3.5 h-3.5 text-white" />
-          }
-        </button>
+        {!hasVideoError && (
+          <button
+            type="button"
+            onClick={togglePlay}
+            title={isPlaying ? t.pauseVideo : t.playVideo}
+            aria-label={isPlaying ? t.pauseVideo : t.playVideo}
+            className="p-2 sm:p-2.5 bg-black/50 backdrop-blur-md text-white/90 border border-white/20 rounded-full hover:bg-black/70 transition-colors cursor-pointer shadow-lg"
+          >
+            {isPlaying
+              ? <Pause className="w-3.5 h-3.5 text-white" />
+              : <Play className="w-3.5 h-3.5 text-white" />
+            }
+          </button>
+        )}
       </div>
 
-      {/* Scroll indicator */}
       {!cinematicMode && (
         <motion.button
+          type="button"
           onClick={onDiscoverClick}
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.8 }}
