@@ -29,7 +29,7 @@ export const Logo: React.FC<LogoProps> = ({
           MY LITTLE BOHÈME
         </span>
         <span className="text-[10px] sm:text-[11px] font-sans tracking-[0.35em] text-[#8B2332] uppercase mt-0.5">
-          BY SARLA • INTERIOR
+          BY SARA • INTERIOR
         </span>
       </div>
     );
@@ -136,11 +136,11 @@ export const Logo: React.FC<LogoProps> = ({
           <line x1="300" y1="338" x2="380" y2="338" strokeWidth="2.5" />
         </g>
 
-        {/* Text Along Arch Path - BY SARLA */}
+        {/* Text Along Arch Path - BY SARA */}
         <path id="archPath" d="M 180,95 A 130,130 0 0,1 320,95" fill="none" />
         <text fill={current.fg} fontSize="22" letterSpacing="6" fontFamily="Cormorant Garamond, serif">
           <textPath href="#archPath" startOffset="50%" textAnchor="middle">
-            BY SARLA
+            BY SARA
           </textPath>
         </text>
 

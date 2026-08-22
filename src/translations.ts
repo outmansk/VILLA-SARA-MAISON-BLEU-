@@ -180,14 +180,14 @@ export const translations: Record<Language, TranslationSchema> = {
     about: {
       eyebrow: '01 — Présentation & Atmosphère',
       title: 'Une villa de luxe exclusive baignée de sérénité et d’élégance.',
-      p1: 'Érigée en 2023 et imaginée par Sarla, la Villa Little Bohème incarne l’art de vivre méditerranéen dans une atmosphère bohème chic raffinée. Conçue pour offrir une parenthèse enchantée en pleine nature, la villa combine matériaux nobles, lumière naturelle et volumes généreux.',
+      p1: 'Érigée en 2023 et imaginée par Sara, la Villa Little Bohème incarne l’art de vivre méditerranéen dans une atmosphère bohème chic raffinée. Conçue pour offrir une parenthèse enchantée en pleine nature, la villa combine matériaux nobles, lumière naturelle et volumes généreux.',
       p2: 'Louée exclusivement dans son intégralité (10 à 12 hôtes), la propriété garantit une intimité absolue. Profitez de 5 suites raffinées, d’une piscine chauffée 15x5m, d’un parc privé de 3 000 m² doté d’un four à pizza, d’un terrain de mini-football, d’un espace gym et d’un terrain de pétanque.',
       privatizationTitle: 'Exclusivité Totale & Sérénité',
       privatizationDesc: 'Aucun autre occupant sur place. Vous disposez librement de la villa, de la piscine et des jardins en toute confidentialité.',
       conciergeTitle: 'Petit-Déjeuner & Ménage Inclus',
       conciergeDesc: 'Chaque matin, savourez un petit-déjeuner maison frais préparé pour vous. Le ménage quotidien est assuré par notre personnel de maison.',
       quote: '« La Villa Little Bohème a été pensée pour rassembler les familles et amis dans un cadre naturel d’exception, alliant liberté et service d’un palace. »',
-      quoteAuthor: '— Sarla, Hôte & Designer',
+      quoteAuthor: '— Sara, Hôte & Designer',
       badgeTitle: 'Villa Privée d’Exception',
       badgeSubtitle: 'Saison 2026 • Réservez Vos Dates'
     },
@@ -255,7 +255,7 @@ export const translations: Record<Language, TranslationSchema> = {
       includedTitle: 'Prestations Incluses',
       incBreakfast: 'Petit-déjeuner fait maison chaque matin',
       incCancellation: 'Service ménage quotidien & linge de maison',
-      incConcierge: 'Accueil personnalisé par Sarla & conciergerie 7j/7',
+      incConcierge: 'Accueil personnalisé par Sara & conciergerie 7j/7',
       priceBreakdown: 'Calcul du Séjour',
       nightlyRate: 'Tarif par nuit',
       cleaningFee: 'Frais de préparation & linge',
@@ -265,7 +265,7 @@ export const translations: Record<Language, TranslationSchema> = {
       thankYou: (name: string) => `Merci ${name} !`,
       confirmedMessage: 'Votre demande de séjour à la Villa Little Bohème a bien été enregistrée par notre conciergerie.',
       refCode: 'Référence dossier',
-      emailSentNote: 'Un e-mail récapitulatif vous a été envoyé. Sarla ou notre conciergerie vous contactera sous 2 heures.',
+      emailSentNote: 'Un e-mail récapitulatif vous a été envoyé. Sara ou notre conciergerie vous contactera sous 2 heures.',
       bookAnother: 'Effectuer une nouvelle réservation'
     },
     mobileBooking: {
@@ -290,7 +290,7 @@ export const translations: Record<Language, TranslationSchema> = {
     services: {
       eyebrow: '05 — Conciergerie & Prestations',
       title: 'Services & Conciergerie de la Villa',
-      subtitle: 'De l’accueil personnalisé par Sarla au Chef à domicile, notre conciergerie transforme votre séjour en expérience inoubliable.',
+      subtitle: 'De l’accueil personnalisé par Sara au Chef à domicile, notre conciergerie transforme votre séjour en expérience inoubliable.',
       inquireBtn: 'Réserver un Service Sur-Mesure'
     },
     contact: {
@@ -345,14 +345,14 @@ export const translations: Record<Language, TranslationSchema> = {
     about: {
       eyebrow: '01 — Overview & Atmosphere',
       title: 'An exclusive luxury villa enveloped in serenity and elegance.',
-      p1: 'Built in 2023 and designed by Sarla, Villa Little Bohème embodies Mediterranean art de vivre in a refined bohemian chic atmosphere. Crafted as a serene haven amidst nature, the villa blends noble materials, soft sunlight, and airy volumes.',
+      p1: 'Built in 2023 and designed by Sara, Villa Little Bohème embodies Mediterranean art de vivre in a refined bohemian chic atmosphere. Crafted as a serene haven amidst nature, the villa blends noble materials, soft sunlight, and airy volumes.',
       p2: 'Rented strictly as a full private retreat for 10 to 12 guests, the property guarantees complete confidentiality. Enjoy 5 luxurious suites, a 15x5m heated pool, a 3,000 sqm private park with a pizza oven, mini-football pitch, gym space, and pétanque court.',
       privatizationTitle: '100% Private & Peaceful',
       privatizationDesc: 'No other guests on site. The entire villa, pool, and gardens belong solely to you.',
       conciergeTitle: 'Daily Breakfast & Housekeeping',
       conciergeDesc: 'Enjoy fresh homemade breakfast served every morning. Daily maid service is included for ultimate comfort.',
       quote: '“Villa Little Bohème was designed to bring families and friends together in an exceptional natural setting with five-star luxury.”',
-      quoteAuthor: '— Sarla, Host & Designer',
+      quoteAuthor: '— Sara, Host & Designer',
       badgeTitle: 'Exceptional Private Villa',
       badgeSubtitle: '2026 Season • Reserve Your Dates'
     },
@@ -420,7 +420,7 @@ export const translations: Record<Language, TranslationSchema> = {
       includedTitle: 'Included Services',
       incBreakfast: 'Fresh homemade breakfast every morning',
       incCancellation: 'Daily housekeeping & fresh linens included',
-      incConcierge: 'Personal greeting by Sarla & 7/7 concierge',
+      incConcierge: 'Personal greeting by Sara & 7/7 concierge',
       priceBreakdown: 'Pricing Calculation',
       nightlyRate: 'Nightly rate',
       cleaningFee: 'Preparation & linen fee',
@@ -430,7 +430,7 @@ export const translations: Record<Language, TranslationSchema> = {
       thankYou: (name: string) => `Thank you ${name}!`,
       confirmedMessage: 'Your stay request at Villa Little Bohème has been received by our concierge.',
       refCode: 'Booking reference',
-      emailSentNote: 'A confirmation email has been sent. Sarla or our concierge will contact you within 2 hours.',
+      emailSentNote: 'A confirmation email has been sent. Sara or our concierge will contact you within 2 hours.',
       bookAnother: 'Make another reservation'
     },
     mobileBooking: {
@@ -455,7 +455,7 @@ export const translations: Record<Language, TranslationSchema> = {
     services: {
       eyebrow: '05 — Villa Concierge & Services',
       title: 'Concierge & Tailored Services',
-      subtitle: 'From personal welcome by Sarla to in-house chef options, our concierge ensures your stay is unforgettable.',
+      subtitle: 'From personal welcome by Sara to in-house chef options, our concierge ensures your stay is unforgettable.',
       inquireBtn: 'Book Bespoke Concierge Service'
     },
     contact: {
@@ -510,14 +510,14 @@ export const translations: Record<Language, TranslationSchema> = {
     about: {
       eyebrow: '01 — Presentación y Atmósfera',
       title: 'Una villa de lujo exclusiva envuelta en serenidad y elegancia.',
-      p1: 'Construida en 2023 y concebida por Sarla, Villa Little Bohème encarna el arte de vivir mediterráneo en una refinada atmósfera bohemia chic. Diseñada como un refugio de paz en plena naturaleza, la villa combina materiales nobles y luz natural.',
+      p1: 'Construida en 2023 y concebida por Sara, Villa Little Bohème encarna el arte de vivir mediterráneo en una refinada atmósfera bohemia chic. Diseñada como un refugio de paz en plena naturaleza, la villa combina materiales nobles y luz natural.',
       p2: 'Alquilada exclusivamente de forma íntegra para 10 a 12 huéspedes, la propiedad garantiza total privacidad. Disfrute de 5 elegantes suites, piscina climatizada 15x5m, parque de 3.000 m² con horno de pizza, mini-fútbol, gimnasio y pista de petanca.',
       privatizationTitle: '100% Privado y Confidencial',
       privatizationDesc: 'Sin otros huéspedes. La villa, la piscina y los jardines son exclusivamente para usted.',
       conciergeTitle: 'Desayuno Diario y Limpieza Incluida',
       conciergeDesc: 'Cada mañana disfrute de un desayuno casero recién preparado. Limpieza diaria incluida para su confort.',
       quote: '«Villa Little Bohème fue concebida para reunir a familias y amigos en un marco natural excepcional con el lujo de un gran hotel.»',
-      quoteAuthor: '— Sarla, Anfitriona y Diseñadora',
+      quoteAuthor: '— Sara, Anfitriona y Diseñadora',
       badgeTitle: 'Villa Privada Excepcional',
       badgeSubtitle: 'Temporada 2026 • Reserve Sus Fechas'
     },
@@ -585,7 +585,7 @@ export const translations: Record<Language, TranslationSchema> = {
       includedTitle: 'Servicios Incluidos',
       incBreakfast: 'Desayuno casero servido cada mañana',
       incCancellation: 'Limpieza diaria y sábanas de lino',
-      incConcierge: 'Bienvenida personal por Sarla y conserjería',
+      incConcierge: 'Bienvenida personal por Sara y conserjería',
       priceBreakdown: 'Cálculo del Precio',
       nightlyRate: 'Tarifa por noche',
       cleaningFee: 'Gastos de preparación y lino',
@@ -595,7 +595,7 @@ export const translations: Record<Language, TranslationSchema> = {
       thankYou: (name: string) => `¡Muchas gracias ${name}!`,
       confirmedMessage: 'Su solicitud de estancia en Villa Little Bohème ha sido recibida por nuestra conserjería.',
       refCode: 'Referencia de reserva',
-      emailSentNote: 'Se le ha enviado un correo electrónico de confirmación. Sarla o nuestra conserjería le contactará en 2 horas.',
+      emailSentNote: 'Se le ha enviado un correo electrónico de confirmación. Sara o nuestra conserjería le contactará en 2 horas.',
       bookAnother: 'Realizar otra reserva'
     },
     mobileBooking: {
@@ -620,7 +620,7 @@ export const translations: Record<Language, TranslationSchema> = {
     services: {
       eyebrow: '05 — Conserjería y Servicios',
       title: 'Servicios y Conserjería de la Villa',
-      subtitle: 'Desde la bienvenida personalizada por Sarla hasta opciones de Chef privado, nuestra conserjería cuidará cada detalle.',
+      subtitle: 'Desde la bienvenida personalizada por Sara hasta opciones de Chef privado, nuestra conserjería cuidará cada detalle.',
       inquireBtn: 'Reservar Servicio de Conserjería'
     },
     contact: {

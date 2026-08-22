@@ -2,7 +2,7 @@ import { Project, Service, StudioInfo, VillaSuite } from './types';
 
 export const studioData: StudioInfo = {
   name: 'VILLA LITTLE BOHÈME',
-  founder: 'Sarla',
+  founder: 'Sara',
   tagline: "Villa Privée de Luxe, Séjours d'Exception & Conciergerie.",
   location: 'Route de Fès • Marrakech • Maroc',
   instagram: '@mylittleboheme_marrakech',
@@ -84,7 +84,7 @@ export const villaSuitesData: VillaSuite[] = [
     ],
     description: "Louez la Villa Little Bohème en privatisation complète pour vos vacances en famille, séjours entre amis ou événements intimes. Inclut l'accès exclusif à la piscine chauffée, au jardin de 3 000 m², aux 5 suites, aux petits-déjeuners maison et au service conciergerie.",
     amenities: ['5 Suites de Luxe (10-12 Hôtes)', 'Piscine Chauffée 15x5m', 'Petit-déjeuner Maison Inclus', 'Ménage Quotidien Inclus', 'Four à Pizza & Brasero', 'Gym, Mini-Foot & Pétanque'],
-    highlights: ['100% Privatif & Confidentiel', 'Accueil personnalisé par Sarla', 'Possibilité Chef Privé sur demande']
+    highlights: ['100% Privatif & Confidentiel', 'Accueil personnalisé par Sara', 'Possibilité Chef Privé sur demande']
   }
 ];
 
@@ -161,12 +161,12 @@ export const servicesData: Service[] = [
     id: 'concierge-prive',
     number: '01',
     title: 'Conciergerie & Services Inclus',
-    tagline: 'Accueil personnalisé par Sarla & attentions quotidiennes.',
+    tagline: 'Accueil personnalisé par Sara & attentions quotidiennes.',
     description: 'Tout est pensé pour votre tranquillité : petit-déjeuner fait maison chaque matin, ménage quotidien, linge de maison en lin lavé, serviettes de piscine et assistance dédiée tout au long de votre séjour.',
     deliverables: [
       'Petit-déjeuner maison préparé chaque matin (Inclus)',
       'Ménage quotidien & rafraîchissement des suites',
-      'Accueil personnalisé par Sarla & remise des clés',
+      'Accueil personnalisé par Sara & remise des clés',
       'Linge de lit en lin lavé & serviettes de piscine',
       'Conciergerie 7j/7 pour vos réservations & activités'
     ],

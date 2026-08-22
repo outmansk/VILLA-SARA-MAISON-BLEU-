@@ -28,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
                   MY LITTLE BOHÈME
                 </span>
                 <span className="text-[9px] sm:text-[11px] font-sans tracking-[0.25em] sm:tracking-[0.35em] text-[#E8D1D5] uppercase block mt-1">
-                  VILLA PRIVÉE DE LUXE BY SARLA
+                  VILLA PRIVÉE DE LUXE BY SARA
                 </span>
               </div>
             </div>
@@ -82,7 +82,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
 
         {/* Footer Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#A64654] font-light gap-4">
-          <p>© {new Date().getFullYear()} MY LITTLE BOHÈME by Sarla. {t.rights}</p>
+          <p>© {new Date().getFullYear()} MY LITTLE BOHÈME by Sara. {t.rights}</p>
 
           <div className="flex items-center space-x-6">
             <a

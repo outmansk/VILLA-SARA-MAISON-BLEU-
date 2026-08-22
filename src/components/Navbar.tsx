@@ -52,8 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { id: 'about', label: t.about },
-    { id: 'suites', label: t.villa },
+    { id: 'about', label: t.villa },
     { id: 'portfolio', label: t.portfolio },
     { id: 'reservation', label: t.booking },
     { id: 'services', label: t.services },

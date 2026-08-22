@@ -38,7 +38,7 @@ export const MobileBookingBar: React.FC<MobileBookingBarProps> = ({ onNavigateTo
     const totalNights = diffDays > 0 ? diffDays : 1;
     const totalGuests = adults + children;
 
-    const text = `Bonjour Sarla, je souhaite réserver la Villa Little Bohème :
+    const text = `Bonjour Sara, je souhaite réserver la Villa Little Bohème :
 • Dates : Du ${checkIn} au ${checkOut} (${totalNights} nuit${totalNights > 1 ? 's' : ''})
 • Hôtes : ${totalGuests} personne${totalGuests > 1 ? 's' : ''} (${adults} adulte${adults > 1 ? 's' : ''}${children > 0 ? `, ${children} enfant${children > 1 ? 's' : ''}` : ''})
 • Formule : Privatisation Intégrale Villa Little Bohème`;

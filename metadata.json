@@ -1,7 +1,6 @@
 {
   "name": "MY LITTLE BOHÈME",
-  "description": "Boutique Villa, Maison d'Hôtes & Interior Design Studio by Sarla with short-term rental stay booking.",
+  "description": "Boutique Villa, Maison d'Hôtes & Interior Design Studio by Sara with short-term rental stay booking.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
-

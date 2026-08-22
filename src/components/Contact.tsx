@@ -26,7 +26,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService = '', lang 
   const [loading, setLoading] = useState(false);
 
   const getWhatsAppContactUrl = (data: ContactFormData) => {
-    const text = `Bonjour Sarla, vous avez un nouveau message depuis la Villa Little Bohème :
+    const text = `Bonjour Sara, vous avez un nouveau message depuis la Villa Little Bohème :
 • Nom : ${data.fullName}
 • Email : ${data.email}
 • Objet : ${data.serviceType}

@@ -90,7 +90,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
     totalPrice: number;
     specialRequests: string;
   }) => {
-    const text = `Bonjour Sarla, je souhaite réserver la Villa Little Bohème :
+    const text = `Bonjour Sara, je souhaite réserver la Villa Little Bohème :
 • Nom : ${booking.fullName}
 • Email : ${booking.email}
 • Téléphone : ${booking.phone || 'Non renseigné'}
